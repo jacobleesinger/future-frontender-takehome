@@ -4,6 +4,8 @@ import ExerciseList from './ExerciseList';
 import ExerciseFilter from './ExerciseFilter';
 import ExerciseDetail from './ExerciseDetail';
 
+import './App.css';
+
 class App extends Component {
   render() {
     return (
