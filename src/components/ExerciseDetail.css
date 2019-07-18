@@ -1,3 +1,7 @@
+.exercise-detail {
+  margin-left: 64px;
+}
+
 .not-selected {
   text-align: center;
 }
@@ -19,4 +23,14 @@
 
 .description {
   margin: 24px;
+}
+
+@media (max-width: 767px) {
+  .not-available {
+    width: 100%;
+  }
+
+  .exercise-detail {
+    margin-left: 0;
+  }
 }

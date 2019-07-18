@@ -6,6 +6,7 @@
 }
 .left-pane {
   grid-column: 1 2;
+  border-right: 1px solid #dddddd;
 }
 
 .right-pane {
@@ -13,11 +14,16 @@
 }
 
 @media (max-width: 767px) {
+  .app {
+    overflow-y: auto;
+  }
+
   .left-pane {
     grid-row-start: 1;
     grid-row-end: 2;
     grid-column-start: 1;
     grid-column-end: 4;
+    border-right: none;
   }
 
   .right-pane {
