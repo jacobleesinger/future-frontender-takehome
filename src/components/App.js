@@ -9,21 +9,29 @@ import './App.css';
 
 class App extends Component {
   state = {
-    exercises: []
+    exercises: [],
+    filteredExercises: []
   };
 
   async componentDidMount() {
     const exercises = await getExercises();
-    this.setState({ exercises });
+    this.setState({ exercises, filteredExercises: exercises });
   }
 
+  filterExercises = name => {
+    this.setState({
+      filteredExercises: this.state.exercises.filter(exercise =>
+        exercise.name.toLowerCase().includes(name.toLowerCase())
+      )
+    });
+  };
+
   render() {
-    console.log(this.state.exercises);
     return (
       <div className='app'>
         <div className='left-pane'>
-          <ExerciseFilter />
-          <ExerciseList exercises={this.state.exercises} />
+          <ExerciseFilter filterExercises={this.filterExercises} />
+          <ExerciseList exercises={this.state.filteredExercises} />
         </div>
         <div className='right-pane'>
           <ExerciseDetail />
