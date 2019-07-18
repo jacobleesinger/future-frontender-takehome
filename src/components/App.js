@@ -23,7 +23,7 @@ class App extends Component {
       <div className='app'>
         <div className='left-pane'>
           <ExerciseFilter />
-          <ExerciseList />
+          <ExerciseList exercises={this.state.exercises} />
         </div>
         <div className='right-pane'>
           <ExerciseDetail />
