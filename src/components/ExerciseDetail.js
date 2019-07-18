@@ -33,6 +33,18 @@ const ExerciseDetail = ({ exercise }) => {
       <h2>{exercise.name}</h2>
       <div className='video'>{renderVideo()}</div>
       <div className='description'>{exercise.description}</div>
+      <ul className='additional-details'>
+        {exercise.equipment_required && (
+          <li>Equipment required: {exercise.equipment_required}</li>
+        )}
+        {exercise.muscle_groups && (
+          <li>Muscle groups: {exercise.muscle_groups}</li>
+        )}
+        {exercise.movement_patterns && (
+          <li>Movement patterns: {exercise.movement_patterns}</li>
+        )}
+        {exercise.synonyms && <li>synonyms: {exercise.synonyms}</li>}
+      </ul>
     </div>
   );
 };
