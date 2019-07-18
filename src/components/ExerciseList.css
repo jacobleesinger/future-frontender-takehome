@@ -1,5 +1,21 @@
 .exercise-list {
-  margin-top: 30px;
+  margin-top: 48px;
   overflow-y: auto;
-  height: calc(100vh - 30px);
+  height: calc(100vh - 48px);
+}
+
+.exercise {
+  margin: 8px;
+  cursor: pointer;
+}
+
+.exercise:hover {
+  font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  .exercise-list {
+    height: 30px;
+    border-bottom: 1px solid #dddddd;
+  }
 }

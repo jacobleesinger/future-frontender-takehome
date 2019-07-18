@@ -11,3 +11,18 @@
 .right-pane {
   grid-column: 2 3;
 }
+
+@media (max-width: 767px) {
+  .left-pane {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  .right-pane {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
