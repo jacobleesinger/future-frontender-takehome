@@ -1,5 +1,7 @@
 import React from 'react';
 
-const ExerciseList = () => <div>ExerciseList</div>;
+import './ExerciseList.css';
+
+const ExerciseList = () => <div className='exercise-list'>ExerciseList</div>;
 
 export default ExerciseList;
