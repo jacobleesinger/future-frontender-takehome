@@ -23,13 +23,17 @@ class App extends Component {
     this.setState({ selectedExercise: exercise });
   };
 
-  filterExercises = name => {
-    if (!name) {
+  filterExercises = term => {
+    if (!term) {
       this.setState({ filteredExercises: this.state.exercises });
     }
     this.setState({
-      filteredExercises: this.state.exercises.filter(exercise =>
-        exercise.name.toLowerCase().includes(name.toLowerCase())
+      filteredExercises: this.state.exercises.filter(
+        exercise =>
+          matchesName(exercise, term) ||
+          matchesEquipment(exercise, term) ||
+          matchesMuscleGroups(exercise, term) ||
+          matchesMovements(exercise, term)
       )
     });
   };
@@ -51,5 +55,20 @@ class App extends Component {
     );
   }
 }
+
+const matchesName = (exercise, term) =>
+  exercise.name.toLowerCase().includes(term.toLowerCase());
+
+const matchesMuscleGroups = (exercise, term) =>
+  exercise.muscle_groups &&
+  exercise.muscle_groups.toLowerCase().includes(term.toLowerCase());
+
+const matchesEquipment = (exercise, term) =>
+  exercise.equipment_required &&
+  exercise.equipment_required.toLowerCase().includes(term.toLowerCase());
+
+const matchesMovements = (exercise, term) =>
+  exercise.movement_patterns &&
+  exercise.movement_patterns.toLowerCase().includes(term.toLowerCase());
 
 export default App;
