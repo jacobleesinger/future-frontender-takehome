@@ -19,6 +19,9 @@ class App extends Component {
   }
 
   filterExercises = name => {
+    if (!name) {
+      this.setState({ filteredExercises: this.state.exercises });
+    }
     this.setState({
       filteredExercises: this.state.exercises.filter(exercise =>
         exercise.name.toLowerCase().includes(name.toLowerCase())
