@@ -10,13 +10,18 @@ import './App.css';
 class App extends Component {
   state = {
     exercises: [],
-    filteredExercises: []
+    filteredExercises: [],
+    selectedExercise: undefined
   };
 
   async componentDidMount() {
     const exercises = await getExercises();
     this.setState({ exercises, filteredExercises: exercises });
   }
+
+  selectExercise = exercise => {
+    this.setState({ selectedExercise: exercise });
+  };
 
   filterExercises = name => {
     if (!name) {
@@ -34,10 +39,13 @@ class App extends Component {
       <div className='app'>
         <div className='left-pane'>
           <ExerciseFilter filterExercises={this.filterExercises} />
-          <ExerciseList exercises={this.state.filteredExercises} />
+          <ExerciseList
+            exercises={this.state.filteredExercises}
+            selectExercise={this.selectExercise}
+          />
         </div>
         <div className='right-pane'>
-          <ExerciseDetail />
+          <ExerciseDetail exercise={this.state.selectedExercise} />
         </div>
       </div>
     );
