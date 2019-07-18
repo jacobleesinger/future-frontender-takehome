@@ -1,0 +1,22 @@
+.not-selected {
+  text-align: center;
+}
+
+.not-available {
+  width: 60%;
+  padding-top: 20%;
+  padding-bottom: 20%;
+  height: 0;
+  margin: auto;
+  text-align: center;
+  background-color: #ddd;
+}
+
+.exercise-detail h2 {
+  justify-content: left;
+  text-align: center;
+}
+
+.description {
+  margin: 24px;
+}
